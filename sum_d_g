@@ -1,0 +1,39 @@
+#  coding: utf-8
+
+
+# 循环解决：
+def sum_d_g_no(arr):
+    total = 0
+
+    for i in range(0, len(arr)):
+        total += arr[i]
+
+    return total
+
+
+arr = [1, 5, 7]
+s = sum_d_g_no(arr)
+print s
+
+
+# 递归解决
+def sum_d_g_yes(arr):
+
+    if len(arr) == 0:
+        total = 0
+        return total
+
+    if len(arr) == 1:
+        total = arr[0]
+        return total
+
+    total = arr[0]
+    arr.remove(arr[0])
+    total += sum_d_g_yes(arr)
+
+    return total
+
+
+arr = [2, 4, 6]
+s = sum_d_g_yes(arr)
+print s
