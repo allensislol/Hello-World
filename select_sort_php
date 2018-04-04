@@ -1,0 +1,26 @@
+<?php
+   error_reporting(E_ALL);
+   ini_set('display_errors', 1);
+
+   function select_sort($arr) {
+
+        $len = count($arr);
+        for($i = 0; $i < $len; $i++ ) {
+
+             $min = $i;
+            for($j = $i + 1; $j < $len ; $j++) {
+                if($arr[$j] < $arr[$min]) {
+                        $temp = $arr[$min];
+                        $arr[$min] = $arr[$j];
+                        $arr[$j] = $temp;
+                }
+            }
+        }
+       return $arr;
+   }
+
+  $arr = array(-1, 4, -2, 200, 0, 3);
+  $arr = select_sort($arr);
+
+  echo "<pre>";
+  print_r($arr);
